@@ -10,11 +10,17 @@ const login = (req, res) => {
 
   if (!findPassword || !findUsername) return res.send("user not found!!!!!!!!");
 
+  // const targetUser = data.find((user) => user.username == req.body.username);
+
+  const { username, password, email, gender } = data.find(
+    (user) => user.username == req.body.username
+  );
+
   res.render("renderProfile", {
-    username: req.body.username,
-    password: req.body.password,
-    email: data.find((x) => x),
-    gender: "jjn",
+    username,
+    password,
+    email,
+    gender,
   });
 };
 
